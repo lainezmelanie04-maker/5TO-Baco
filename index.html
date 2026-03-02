@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tarjeta</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>Generador de Currículum</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-<div class="container">
-	<div class="controls">
-		<input type="text" id="nameInput" placeholder="Nombre del usuario">
-		<input type="text" id="jobInput" placeholder="Tu cargo">
-		<input type="color" id="colorPicker" value="#C7A342">
-		<select id ="fontPicker">
-			<option value= "sans-serif">Normal</option>
-			<option value= "serif">Elegante</option>
-			<option value="monospace">Código</option>
-		</select>
-		<button id="darkModeBtn"> Modo oscuro 🌚</button>
 
-	</div>
-	<div class="card" id="profileCard">
-		<div class="banner">
-			
-		</div>
-		<div class="avatar">
-			
-		</div>
+    <div class="container">
+        <h1>Generador de Currículum </h1>
 
-		<h1 id="displayName">Ingresa tu Nombre</h1>
-		<h2>  </h2>
-		<p>Desarrollador Melanie Lainez</p>
-	</div>
-	
-</div>
-<script src="function.js"></script>
+        <form id="cvForm">
+            <input type="text" id="nombre" placeholder="Nombre Completo" required>
+            <input type="email" id="correo" placeholder="Correo Electrónico" required>
+            <input type="text" id="telefono" placeholder="Teléfono" required>
+            <textarea id="perfil" placeholder="Perfil Profesional"></textarea>
+            <textarea id="educacion" placeholder="Educación"></textarea>
+            <textarea id="experiencia" placeholder="Experiencia Laboral"></textarea>
+            <textarea id="habilidades" placeholder="Habilidades"></textarea>
+
+            <button type="button" onclick="generarCV()">Generar Vista Previa</button>
+            <button type="button" onclick="descargarPDF()">Descargar PDF</button>
+        </form>
+
+        <div id="resultado" class="cv-preview"></div>
+    </div>
+
+<script src="script.js"></script>
 </body>
 </html>
